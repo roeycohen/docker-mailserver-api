@@ -1,7 +1,7 @@
-# docker-mailserver-api 
+# docker-mailserver-api
 
 ## :page_with_curl: About
-docker-mailserver-api or dms-api is a sidecar container for https://github.com/docker-mailserver/docker-mailserver that allows managing object using a simple rest api.
+docker-mailserver-api or dms-api is a sidecar container for https://github.com/docker-mailserver/docker-mailserver that allows managing objects using a simple rest api.
 
 ## installation
 * clone this repository into a sub-folder (e.g. dms-api) next to your original compose.yaml file
@@ -28,6 +28,8 @@ docker-mailserver-api or dms-api is a sidecar container for https://github.com/d
 * add new email account: http::server:3000/email/add?email=james&password=topsecret
 * update email's password: http::server:3000/email/update?email=james&password=topsecret
 * delete email: http::server:3000/email/del?email=james
+
+**Note:** for now, only email list/add/update/del commands are supported, but PRs for more actions are welcome :)
 
 > [!TIP]
 > you can set the default email domain in the DEFAULT_MAIL_DOMAIN variable, so that you can pass to the API only the account name - for example `james` instead `james@bond.com`  
