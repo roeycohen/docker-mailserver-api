@@ -34,19 +34,19 @@ app.get('/email/list', authenticateApiKey, (req, res) =>
 
 app.get('/email/add', authenticateApiKey, (req, res) =>
 {
-	api.email_add(req.query.user, req.query.password);
+	api.email_add(req.query.email, req.query.password);
 	res.status(200).send('');
 });
 
 app.get('/email/update', authenticateApiKey, (req, res) =>
 {
-	api.email_update(req.query.user, req.query.password);
+	api.email_update(req.query.email, req.query.password);
 	res.status(200).send('');
 });
 
 app.get('/email/del', authenticateApiKey, (req, res) =>
 {
-	api.email_del(req.query.user);
+	api.email_del(req.query.email);
 	res.status(200).send('');
 });
 
