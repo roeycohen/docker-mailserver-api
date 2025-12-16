@@ -25,9 +25,9 @@ docker-mailserver-api or dms-api is a sidecar container for https://github.com/d
 
 ## api calls
 * list emails: http::server:3000/email/list
-* add new email account: http::server:3000/email/add?user=hello&password=123
-* update email's password: http::server:3000/email/update?user=hello&password=123
-* delete email: http::server:3000/email/del?user=hello
+* add new email account: http::server:3000/email/add?user=james&password=topsecret
+* update email's password: http::server:3000/email/update?user=james&password=topsecret
+* delete email: http::server:3000/email/del?user=james
 
 > [!TIP]
 > you can set the default email domain in the DEFAULT_MAIL_DOMAIN variable, so that you can pass to the API only the account name - for example `james` instead `james@bond.com`  
