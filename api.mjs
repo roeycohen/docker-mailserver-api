@@ -106,4 +106,15 @@ export class Api
 			throw new ApiError(`Failed to execute: ${command}.`, 500, executionResult.error.trim());
 		}
 	}
+
+	fail2ban_list_raw()
+	{
+		const command = `fail2ban`;
+		const executionResult = this.executeCommand(command);
+
+		if (!executionResult.success)
+			throw new ApiError(`Failed to execute: ${command}.`, 500, executionResult.error?.trim());
+
+		return executionResult.output;
+	}
 }

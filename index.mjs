@@ -50,6 +50,12 @@ app.get('/email/del', authenticateApiKey, (req, res) =>
 	res.status(200).send('');
 });
 
+app.get('/fail2ban/list_raw', authenticateApiKey, (req, res) =>
+{
+	const ban = api.fail2ban_list_raw(req.query.email);
+	res.status(200).send(ban);
+});
+
 app.use((err, req, res, next) =>
 {
 	res.status(err.statusCode || 500).json({
