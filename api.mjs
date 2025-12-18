@@ -107,7 +107,7 @@ export class Api
 		}
 	}
 
-	fail2ban_list_raw()
+	fail2ban_list()
 	{
 		const command = `fail2ban`;
 		const executionResult = this.executeCommand(command);
@@ -115,6 +115,9 @@ export class Api
 		if (!executionResult.success)
 			throw new ApiError(`Failed to execute: ${command}.`, 500, executionResult.error?.trim());
 
-		return [executionResult.output];
+		if (executionResult.output.includes('fail2ban: No IPs have been banned'))
+			return [];
+
+		return executionResult.output.split('\n').filter(e => e);
 	}
 }
