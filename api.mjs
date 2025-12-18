@@ -115,6 +115,6 @@ export class Api
 		if (!executionResult.success)
 			throw new ApiError(`Failed to execute: ${command}.`, 500, executionResult.error?.trim());
 
-		return executionResult.output;
+		return [executionResult.output];
 	}
 }
